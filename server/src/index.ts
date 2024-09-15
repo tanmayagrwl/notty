@@ -4,8 +4,12 @@ import { logger } from "hono/logger"
 import dbConnect from "./db/connect"
 import NotesModel from "./db/notes-model"
 import { isValidObjectId } from "mongoose"
+import { cors } from 'hono/cors'
+
 
 const app = new Hono()
+
+app.use('*', cors())
 
 // middlewares
 app.use(logger())
